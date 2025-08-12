@@ -32,8 +32,11 @@ const deployBuyMeACoffee: DeployFunction = async function (hre: HardhatRuntimeEn
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const buyMeACoffeeContract = await hre.ethers.getContract<Contract>("BuyMeACoffee", deployer);
-  console.log("👋 Buy this person a coffee!", await buyMeACoffeeContract.owner());
+  // const buyMeACoffeeContract = await hre.ethers.getContract<Contract>("BuyMeACoffee", deployer);
+  // console.log("👋 Buy this person a coffee!", await buyMeACoffeeContract.owner());
+
+  const contract = await hre.ethers.getContract<Contract>("BuyMeACoffee");
+  console.log("👋 Buy this person a coffee!", await contract.owner());
 };
 
 export default deployBuyMeACoffee;

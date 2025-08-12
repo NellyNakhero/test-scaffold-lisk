@@ -15,10 +15,12 @@ import "hardhat/console.sol";
 contract YourContract {
 	// State Variables
 	address public immutable owner;
-	string public greeting = "Building Unstoppable Apps!!!";
+	string public greeting = "Hey, its Okay you are Building Unstoppable Apps!!!";
 	bool public premium = false;
 	uint256 public totalCounter = 0;
 	mapping(address => uint) public userGreetingCounter;
+
+	address public title;
 
 	// Events: a way to emit log statements from smart contract that can be listened to by external parties
 	event GreetingChange(
@@ -40,6 +42,10 @@ contract YourContract {
 		// msg.sender: predefined variable that represents address of the account that called the current function
 		require(msg.sender == owner, "Not the Owner");
 		_;
+	}
+
+	function setTitle(address _title) public isOwner{
+		title = _title;
 	}
 
 	/**
