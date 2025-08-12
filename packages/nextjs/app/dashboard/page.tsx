@@ -8,7 +8,7 @@ import { SalesAgent } from "../../components/agents/SalesAgent";
 import { MetricsWidget } from "../../components/widgets/MetricsWidget";
 import { MiniAppWidget } from "../../components/widgets/MiniAppWidget";
 import { WalletWidget } from "../../components/widgets/WalletWidget";
-import { Sidebar } from "../sidebar/page";
+import { Sidebar } from "../../components/Sidebar";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Dashboard() {
