@@ -6,6 +6,426 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   4202: {
+    BaseFlowImplementation: {
+      address: "0xd8BB5216927941DA6c29c250e8f9f132E5a76732",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_usdc",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "merchant",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "itemId",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+          ],
+          name: "InventoryUpdated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "bytes32",
+              name: "invoiceId",
+              type: "bytes32",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "merchant",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "customer",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "InvoiceCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "bytes32",
+              name: "invoiceId",
+              type: "bytes32",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "customer",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "InvoicePaid",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferStarted",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "acceptOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "customer",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "dueDate",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "metadata",
+              type: "string",
+            },
+          ],
+          name: "createInvoice",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "merchant",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "itemId",
+              type: "string",
+            },
+          ],
+          name: "getInventory",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "string",
+                  name: "itemId",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "quantity",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "price",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "merchant",
+                  type: "address",
+                },
+              ],
+              internalType: "struct BaseFlowCore.Inventory",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          name: "inventory",
+          outputs: [
+            {
+              internalType: "string",
+              name: "itemId",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "merchant",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          name: "invoices",
+          outputs: [
+            {
+              internalType: "address",
+              name: "merchant",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "customer",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "dueDate",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "paid",
+              type: "bool",
+            },
+            {
+              internalType: "string",
+              name: "metadata",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "invoiceId",
+              type: "bytes32",
+            },
+          ],
+          name: "payInvoice",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "pendingOwner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "itemId",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "quantity",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "price",
+              type: "uint256",
+            },
+          ],
+          name: "updateInventory",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "usdc",
+          outputs: [
+            {
+              internalType: "contract IERC20",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {
+        acceptOwnership: "contracts/BaseFlowCore.sol",
+        createInvoice: "contracts/BaseFlowCore.sol",
+        getInventory: "contracts/BaseFlowCore.sol",
+        inventory: "contracts/BaseFlowCore.sol",
+        invoices: "contracts/BaseFlowCore.sol",
+        owner: "contracts/BaseFlowCore.sol",
+        payInvoice: "contracts/BaseFlowCore.sol",
+        pendingOwner: "contracts/BaseFlowCore.sol",
+        renounceOwnership: "contracts/BaseFlowCore.sol",
+        transferOwnership: "contracts/BaseFlowCore.sol",
+        updateInventory: "contracts/BaseFlowCore.sol",
+        usdc: "contracts/BaseFlowCore.sol",
+      },
+    },
     BuyMeACoffee: {
       address: "0x595CB1A10154F7D6aE8E9E35988Cee22CE4dc301",
       abi: [
