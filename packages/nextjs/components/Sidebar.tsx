@@ -5,7 +5,7 @@ interface SidebarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
-export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
+export function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   const menuItems = [
     {
       id: "dashboard",
