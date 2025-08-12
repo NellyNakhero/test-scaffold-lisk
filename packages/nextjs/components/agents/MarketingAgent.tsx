@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { TrendingUp, Users, Zap, Calendar } from 'lucide-react';
+import { Users, Zap, Calendar } from 'lucide-react';
 export function MarketingAgent() {
   const socialMentions = [{
     id: '1',
